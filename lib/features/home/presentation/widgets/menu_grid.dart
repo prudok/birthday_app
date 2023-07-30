@@ -1,5 +1,6 @@
 import 'package:birthday_app/core/asset_path.dart';
 import 'package:birthday_app/features/home/presentation/widgets/menu_grid_builder.dart';
+import 'package:birthday_app/generated/l10n.dart';
 import 'package:birthday_ui/birthday_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -64,7 +65,7 @@ class _MenuGridState extends State<MenuGrid> with TickerProviderStateMixin {
             });
           },
           child: BirthdayText.custom(
-            _isExpanded ? 'Свернуть ▲' : 'Развернуть ▼',
+            _isExpanded ? S.of(context).collapse : S.of(context).expand,
             bodyStyle.copyWith(decoration: TextDecoration.underline),
           ),
         ),

@@ -1,3 +1,4 @@
+import 'package:birthday_app/generated/l10n.dart';
 import 'package:birthday_ui/birthday_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -18,7 +19,7 @@ class UrlText extends StatelessWidget {
         }
       },
       child: BirthdayText.custom(
-        'Перейти на сайт места',
+        S.of(context).visitSite,
         bodyStyle.copyWith(decoration: TextDecoration.underline),
       ),
     );

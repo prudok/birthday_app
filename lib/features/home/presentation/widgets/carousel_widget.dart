@@ -14,11 +14,11 @@ class _CarouselWidgetState extends State<CarouselWidget> {
   final PageController _pageController = PageController();
   int _activePage = 0;
 
-  final List<CarouselItem> _pages = [
-    const CarouselItem(AssetPath.homeCarouselOne, '25 августа\n2023'),
-    const CarouselItem(AssetPath.homeCarouselTwo, '25 августа\n2023'),
-    const CarouselItem(AssetPath.homeCarouselThree, '25 августа\n2023'),
-    const CarouselItem(AssetPath.homeCarouselFour, '25 августа\n2023'),
+  final List<_CarouselItem> _pages = [
+    const _CarouselItem(AssetPath.homeCarouselOne, '25 августа\n2023'),
+    const _CarouselItem(AssetPath.homeCarouselTwo, '25 августа\n2023'),
+    const _CarouselItem(AssetPath.homeCarouselThree, '25 августа\n2023'),
+    const _CarouselItem(AssetPath.homeCarouselFour, '25 августа\n2023'),
   ];
 
   @override
@@ -68,8 +68,8 @@ class _CarouselWidgetState extends State<CarouselWidget> {
   }
 }
 
-class CarouselItem extends StatelessWidget {
-  const CarouselItem(this.imagePath, this.title, {super.key});
+class _CarouselItem extends StatelessWidget {
+  const _CarouselItem(this.imagePath, this.title);
 
   final String imagePath;
   final String title;

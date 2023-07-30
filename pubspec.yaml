@@ -15,7 +15,7 @@ dependencies:
   flutter_screenutil: ^5.8.4
   birthday_ui:
     path: packages/birthday_ui
-  intl: ^0.18.1
+  intl: ^0.18.0
   yandex_mapkit: ^3.3.3
   build_runner: ^2.4.6
   freezed_annotation: ^2.4.1
@@ -25,6 +25,8 @@ dependencies:
   auto_route: ^7.7.1
   injectable: ^2.1.2
   get_it: ^7.6.0
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
@@ -49,3 +51,5 @@ flutter:
     - family: YesevaOne
       fonts:
         - asset: assets/fonts/YesevaOne-Regular.ttf
+flutter_intl:
+  enabled: true

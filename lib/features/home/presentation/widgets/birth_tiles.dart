@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:birthday_app/config/router.dart';
 import 'package:birthday_app/core/asset_path.dart';
+import 'package:birthday_app/generated/l10n.dart';
 import 'package:birthday_ui/birthday_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -33,36 +34,36 @@ class _BirthTilesState extends State<BirthTiles> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BirthdayListTile(
+        _BirthdayListTile(
           imagePath: AssetPath.greenCircle,
-          title: 'Настольные игры',
-          subTitle: 'Мафия, уно, домино, экивоки и другие',
+          title: S.of(context).boardGames,
+          subTitle: S.of(context).gameCategories,
           onTap: () => context.router.push(const AnimationRoute()),
         ),
-        const BirthdayListTile(
+        _BirthdayListTile(
           imagePath: AssetPath.blueCircle,
-          title: 'Бассейн',
-          subTitle: 'Два Бассейна с подгоревом',
+          title: S.of(context).pool,
+          subTitle: S.of(context).twoHeatedPools,
         ),
         SizeTransition(
           sizeFactor: _animation,
           axisAlignment: -1,
-          child: const Column(
+          child: Column(
             children: [
-              BirthdayListTile(
+              _BirthdayListTile(
                 imagePath: AssetPath.greenCircle,
-                title: 'Настольные игры',
-                subTitle: 'Мафия, уно, домино, экивоки и другие',
+                title: S.of(context).boardGames,
+                subTitle: S.of(context).gameCategories,
               ),
-              BirthdayListTile(
+              _BirthdayListTile(
                 imagePath: AssetPath.greenCircle,
-                title: 'Настольные игры',
-                subTitle: 'Мафия, уно, домино, экивоки и другие',
+                title: S.of(context).boardGames,
+                subTitle: S.of(context).gameCategories,
               ),
-              BirthdayListTile(
+              _BirthdayListTile(
                 imagePath: AssetPath.greenCircle,
-                title: 'Настольные игры',
-                subTitle: 'Мафия, уно, домино, экивоки и другие',
+                title: S.of(context).boardGames,
+                subTitle: S.of(context).gameCategories,
               ),
             ],
           ),
@@ -75,7 +76,7 @@ class _BirthTilesState extends State<BirthTiles> with TickerProviderStateMixin {
             });
           },
           child: BirthdayText.custom(
-            _isExpanded ? 'Свернуть ▲' : 'Развернуть ▼',
+            _isExpanded ? S.of(context).collapse : S.of(context).expand,
             bodyStyle.copyWith(decoration: TextDecoration.underline),
           ),
         )
@@ -84,12 +85,11 @@ class _BirthTilesState extends State<BirthTiles> with TickerProviderStateMixin {
   }
 }
 
-class BirthdayListTile extends StatelessWidget {
-  const BirthdayListTile({
+class _BirthdayListTile extends StatelessWidget {
+  const _BirthdayListTile({
     required this.imagePath,
     required this.title,
     required this.subTitle,
-    super.key,
     this.onTap,
   });
 

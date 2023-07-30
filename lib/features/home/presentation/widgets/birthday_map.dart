@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:birthday_app/core/asset_path.dart';
+import 'package:birthday_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
@@ -46,10 +47,12 @@ class _BirthdayMapState extends State<BirthdayMap> {
           PlacemarkMapObject(
             opacity: 0.8,
             point: _moscowPoint,
-            mapId: const MapObjectId('День рождения'),
-            text: const PlacemarkText(
-              text: 'День рождения',
-              style: PlacemarkTextStyle(placement: TextStylePlacement.bottom),
+            mapId: MapObjectId(S.of(context).birthday),
+            text: PlacemarkText(
+              text: S.of(context).birthday,
+              style: const PlacemarkTextStyle(
+                placement: TextStylePlacement.bottom,
+              ),
             ),
             icon: PlacemarkIcon.single(
               PlacemarkIconStyle(

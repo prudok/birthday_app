@@ -24,7 +24,7 @@ class MenuGridBuilder extends StatelessWidget {
         crossAxisSpacing: horizontalPaddingMedium,
       ),
       itemBuilder: (context, ind) {
-        return MenuItem(
+        return _MenuItem(
           imagePath: _items[ind].$1,
           title: _items[ind].$2,
           itemIndex: ind,
@@ -34,12 +34,11 @@ class MenuGridBuilder extends StatelessWidget {
   }
 }
 
-class MenuItem extends StatelessWidget {
-  const MenuItem({
+class _MenuItem extends StatelessWidget {
+  const _MenuItem({
     required this.imagePath,
     required this.title,
     required this.itemIndex,
-    super.key,
   });
 
   final String imagePath;
