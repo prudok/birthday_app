@@ -1,0 +1,49 @@
+name: birthday_app
+description: A simple flutter application to invite your friends to your party!
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_screenutil: ^5.8.4
+  birthday_ui:
+    path: packages/birthday_ui
+  intl: ^0.18.1
+  yandex_mapkit: ^3.3.3
+  build_runner: ^2.4.6
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+  bloc: ^8.1.2
+  url_launcher: ^6.1.12
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  very_good_analysis: ^5.0.0+1
+  flutter_lints: ^2.0.0
+  json_serializable: ^6.7.1
+  freezed: ^2.4.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+
+  fonts:
+    - family: Jost
+      fonts:
+        - asset: assets/fonts/Jost-Italic-VariableFont_wght.ttf
+        - asset: assets/fonts/Jost-VariableFont_wght.ttf
+    - family: YesevaOne
+      fonts:
+        - asset: assets/fonts/YesevaOne-Regular.ttf
