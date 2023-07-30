@@ -1,5 +1,6 @@
+import 'package:birthday_app/config/injection.dart';
+import 'package:birthday_app/config/router.dart';
 import 'package:birthday_app/core/themes.dart';
-import 'package:birthday_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,13 +13,12 @@ class App extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
+        return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           theme: lightTheme,
-          home: child,
+          routerConfig: getIt.get<AppRouter>().config(),
         );
       },
-      child: const HomeView(),
     );
   }
 }

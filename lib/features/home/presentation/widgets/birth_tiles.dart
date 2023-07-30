@@ -1,5 +1,6 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:birthday_app/config/router.dart';
 import 'package:birthday_app/core/asset_path.dart';
-import 'package:birthday_app/features/animations/presentation/views/animation_view.dart';
 import 'package:birthday_ui/birthday_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -36,10 +37,7 @@ class _BirthTilesState extends State<BirthTiles> with TickerProviderStateMixin {
           imagePath: AssetPath.greenCircle,
           title: 'Настольные игры',
           subTitle: 'Мафия, уно, домино, экивоки и другие',
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const AnimationView()),
-          ),
+          onTap: () => context.router.push(const AnimationRoute()),
         ),
         const BirthdayListTile(
           imagePath: AssetPath.blueCircle,
@@ -103,17 +101,12 @@ class BirthdayListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Image.asset(
-        imagePath,
-        fit: BoxFit.cover,
-      ),
+      leading: Image.asset(imagePath, fit: BoxFit.cover),
       title: BirthdayText.custom(
         title,
         bodyStyle.copyWith(fontWeight: FontWeight.bold),
       ),
-      subtitle: BirthdayText.body(
-        subTitle,
-      ),
+      subtitle: BirthdayText.body(subTitle),
       trailing: IconButton(
         icon: Image.asset(AssetPath.rightArrow),
         onPressed: onTap,

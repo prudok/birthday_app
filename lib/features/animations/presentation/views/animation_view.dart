@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:birthday_app/features/animations/presentation/widgets/animated_positioned_square.dart';
 import 'package:birthday_app/features/animations/presentation/widgets/hero_square.dart';
 import 'package:birthday_app/features/animations/presentation/widgets/rotating_square.dart';
@@ -6,6 +7,7 @@ import 'package:birthday_app/features/animations/presentation/widgets/snake_squa
 import 'package:birthday_app/features/animations/presentation/widgets/switching_square.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class AnimationView extends StatelessWidget {
   const AnimationView({super.key});
 

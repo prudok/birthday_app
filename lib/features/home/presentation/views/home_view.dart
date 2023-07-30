@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:birthday_app/config/router.dart';
 import 'package:birthday_app/features/home/presentation/widgets/birth_tiles.dart';
 import 'package:birthday_app/features/home/presentation/widgets/birthday_map.dart';
 import 'package:birthday_app/features/home/presentation/widgets/carousel_widget.dart';
@@ -6,6 +8,7 @@ import 'package:birthday_app/features/home/presentation/widgets/url_text.dart';
 import 'package:birthday_ui/birthday_ui.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
@@ -34,11 +37,19 @@ class HomeView extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Flexible(
-                      child: BirthdayButton(title: 'Список Гостей'),
+                    Flexible(
+                      child: BirthdayButton(
+                        title: 'Список Гостей',
+                        onTap: () => context.router.push(const GuestRoute()),
+                      ),
                     ),
                     horizontalSpaceMedium,
-                    const Flexible(child: BirthdayButton(title: 'Вишлист')),
+                    Flexible(
+                      child: BirthdayButton(
+                        title: 'Вишлист',
+                        onTap: () => context.router.push(const WishlistRoute()),
+                      ),
+                    ),
                   ],
                 ),
               ),

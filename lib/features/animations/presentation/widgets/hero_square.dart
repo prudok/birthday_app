@@ -13,7 +13,7 @@ class HeroSquare extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
+              MaterialPageRoute<void>(
                 builder: (context) => Scaffold(
                   floatingActionButton: IconButton(
                     icon: const Icon(Icons.arrow_back_ios_new),

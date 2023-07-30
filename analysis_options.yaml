@@ -5,6 +5,8 @@ analyzer:
     - '**.g.dart'
     - '**.freezed.dart'
     - '**.generated.dart'
+    - '**.gr.dart'
+    - '**.config.dart'
 
 linter:
   rules:
