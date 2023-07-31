@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "birthday": MessageLookupByLibrary.simpleMessage("День рождения"),
         "boardGames": MessageLookupByLibrary.simpleMessage("Настольные игры"),
+        "bread": MessageLookupByLibrary.simpleMessage("Хлеб"),
         "collapse": MessageLookupByLibrary.simpleMessage("Свернуть ▲"),
         "entertainment": MessageLookupByLibrary.simpleMessage("Развлечения"),
         "expand": MessageLookupByLibrary.simpleMessage("Развернуть ▼"),

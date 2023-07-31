@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:birthday_app/config/router.dart';
 import 'package:birthday_ui/birthday_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -24,10 +26,18 @@ class MenuGridBuilder extends StatelessWidget {
         crossAxisSpacing: horizontalPaddingMedium,
       ),
       itemBuilder: (context, ind) {
-        return _MenuItem(
-          imagePath: _items[ind].$1,
-          title: _items[ind].$2,
-          itemIndex: ind,
+        return GestureDetector(
+          onTap: () => context.router.push(
+            MenuItemRoute(
+              imagePath: _items[ind].$1,
+              title: _items[ind].$2,
+            ),
+          ),
+          child: _MenuItem(
+            imagePath: _items[ind].$1,
+            title: _items[ind].$2,
+            itemIndex: ind,
+          ),
         );
       },
     );

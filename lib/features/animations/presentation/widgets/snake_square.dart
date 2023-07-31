@@ -18,7 +18,7 @@ class _SnakeSquareState extends State<SnakeSquare>
       duration: const Duration(seconds: 1),
       vsync: this,
     );
-    _animation = Tween(begin: 0.0, end: 50.0)
+    _animation = Tween(begin: 0.toDouble(), end: 50.toDouble())
         .chain(CurveTween(curve: Curves.elasticIn))
         .animate(_controller)
       ..addStatusListener((status) {

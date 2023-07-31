@@ -13,8 +13,8 @@ abstract class AssetPath {
 
   static const blueCircle = 'assets/images/blue_circle.png';
   static const greenCircle = 'assets/images/green_circle.png';
-
   static const rightArrow = 'assets/images/arrow_right.png';
-
+  static const leftArrow = 'assets/images/arrow_left.png';
   static const placemark = 'assets/images/placemark.png';
+  static const detailIcon = 'assets/images/detail_icon.png';
 }

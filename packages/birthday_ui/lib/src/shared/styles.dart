@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final TextStyle heading1Style = TextStyle(
   fontSize: 24.sp,
-  fontWeight: FontWeight.w400,
+  fontWeight: FontWeight.w500,
   fontFamily: 'Jost',
 );
 

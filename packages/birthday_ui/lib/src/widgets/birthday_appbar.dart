@@ -20,10 +20,16 @@ class BirthdayAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0,
       title: title,
       leading: leading,
       actions: actions,
       backgroundColor: backgroundColor,
+      centerTitle: centerTitle,
+      titleTextStyle: const TextStyle(color: kBlackColor),
+      iconTheme: const IconThemeData(
+        color: kBlackColor,
+      ),
     );
   }
 

@@ -1,0 +1,9 @@
+**/.dart_tool
+**/.idea
+**/.vscode
+**/build
+*.gr.dart
+*.g.dart
+*.generated.dart
+*.freezed.dart
+*.config.dart

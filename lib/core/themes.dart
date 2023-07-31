@@ -5,8 +5,8 @@ final ThemeData lightTheme = ThemeData(
   colorScheme: const ColorScheme(
     brightness: Brightness.light,
     background: kBackgroundColor,
-    primary: kPrimaryGreenColor,
-    onPrimary: kPrimaryGreenColor,
+    primary: kBlackColor,
+    onPrimary: kBlackColor,
     secondary: kLightGreenColor,
     onSecondary: kLightGreenColor,
     secondaryContainer: kOrangeColor,

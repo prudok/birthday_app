@@ -4,6 +4,7 @@ import 'package:birthday_app/features/guests/presentation/views/guest_view.dart'
 import 'package:birthday_app/features/home/presentation/views/home_view.dart';
 import 'package:birthday_app/features/home/presentation/views/menu_item_view.dart';
 import 'package:birthday_app/features/wishlist/presentation/views/wishlist_view.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 part 'router.gr.dart';
