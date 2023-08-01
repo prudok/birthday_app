@@ -45,19 +45,22 @@ class BirthdayInputField extends StatelessWidget {
               )
             : null,
         border: circularBorder.copyWith(
-          borderSide:
-              BorderSide(color: Theme.of(context).colorScheme.secondary),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.secondary,
+          ),
         ),
         errorBorder: circularBorder.copyWith(
           borderSide: BorderSide(color: Theme.of(context).colorScheme.error),
         ),
         focusedBorder: circularBorder.copyWith(
-          borderSide:
-              BorderSide(color: Theme.of(context).colorScheme.secondary),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.secondary,
+          ),
         ),
         enabledBorder: circularBorder.copyWith(
-          borderSide:
-              BorderSide(color: Theme.of(context).colorScheme.secondary),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.secondary,
+          ),
         ),
       ),
     );

@@ -7,10 +7,12 @@ class BirthdayButton extends StatelessWidget {
     super.key,
     this.onTap,
     this.leading,
+    this.color = kOrangeColor,
   });
 
   final String title;
   final void Function()? onTap;
+  final Color? color;
   final Widget? leading;
 
   @override
@@ -22,7 +24,7 @@ class BirthdayButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondaryContainer,
+          color: color,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Row(

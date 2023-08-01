@@ -34,8 +34,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "localAdress": MessageLookupByLibrary.simpleMessage(
             "Центральная ул., 84, хутор Седых"),
         "menu": MessageLookupByLibrary.simpleMessage("Меню"),
+        "name": MessageLookupByLibrary.simpleMessage("Имя"),
+        "phone": MessageLookupByLibrary.simpleMessage("Телефон"),
         "place": MessageLookupByLibrary.simpleMessage("Место"),
         "pool": MessageLookupByLibrary.simpleMessage("Бассейн"),
+        "profession": MessageLookupByLibrary.simpleMessage("Профессия"),
+        "surname": MessageLookupByLibrary.simpleMessage("Фамилия"),
         "twoHeatedPools":
             MessageLookupByLibrary.simpleMessage("Два Бассейна с подгоревом"),
         "visitSite":

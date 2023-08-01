@@ -4,11 +4,12 @@ import 'package:birthday_app/features/guests/data/datasource/guest_api.dart';
 import 'package:birthday_app/features/guests/domain/entities/guest.dart';
 import 'package:birthday_app/features/guests/domain/entities/guest_list.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:injectable/injectable.dart';
 
+@Singleton()
 class GuestAPIImpl extends GuestAPI {
-  GuestAPIImpl(this.db);
 
-  final FirebaseFirestore db;
+  final FirebaseFirestore db = FirebaseFirestore.instance;
 
   @override
   Future<Guest> get(int id) async {

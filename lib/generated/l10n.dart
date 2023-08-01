@@ -209,6 +209,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Имя`
+  String get name {
+    return Intl.message(
+      'Имя',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Фамилия`
+  String get surname {
+    return Intl.message(
+      'Фамилия',
+      name: 'surname',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Телефон`
+  String get phone {
+    return Intl.message(
+      'Телефон',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Профессия`
+  String get profession {
+    return Intl.message(
+      'Профессия',
+      name: 'profession',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

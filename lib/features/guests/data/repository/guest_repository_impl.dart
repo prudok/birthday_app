@@ -1,12 +1,14 @@
-import 'package:birthday_app/features/guests/data/datasource/guest_api.dart';
+import 'package:birthday_app/features/guests/data/datasource/guest_api_impl.dart';
 import 'package:birthday_app/features/guests/domain/entities/guest.dart';
 import 'package:birthday_app/features/guests/domain/entities/guest_list.dart';
 import 'package:birthday_app/features/guests/domain/repository/guest_repository.dart';
+import 'package:injectable/injectable.dart';
 
+@Singleton()
 class GuestRepositoryImpl extends GuestRepository {
   GuestRepositoryImpl(this.guestAPIImpl);
 
-  final GuestAPI guestAPIImpl;
+  final GuestAPIImpl guestAPIImpl;
 
   @override
   Future<void> add(Guest guest) async {
