@@ -32,7 +32,7 @@ class BirthdayButton extends StatelessWidget {
           children: [
             BirthdayText.custom(
               title,
-              bodyStyle.copyWith(
+              body1Style.copyWith(
                 fontWeight: FontWeight.w600,
                 color: Theme.of(context).colorScheme.surface,
               ),

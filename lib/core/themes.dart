@@ -6,7 +6,7 @@ final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     background: kBackgroundColor,
     primary: kPrimaryGreenColor,
-    onPrimary: kBlackColor,
+    onPrimary: kWhiteColor,
     secondary: kLightGreenColor,
     onSecondary: kLightGreenColor,
     secondaryContainer: kOrangeColor,
@@ -14,6 +14,6 @@ final ThemeData lightTheme = ThemeData(
     onError: kErrorColor,
     onBackground: kBackgroundColor,
     surface: kWhiteColor,
-    onSurface: kWhiteColor,
+    onSurface: kBlackColor,
   ),
 );

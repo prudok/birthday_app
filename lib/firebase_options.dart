@@ -28,10 +28,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -65,5 +62,15 @@ class DefaultFirebaseOptions {
     storageBucket: 'birthday-app-7f434.appspot.com',
     iosClientId: '1091140346363-2dnr5r2j4i98ht9r6ejv25n86isnq2v3.apps.googleusercontent.com',
     iosBundleId: 'com.example.birthdayApp',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyAYRZV6S5fNW3q_nIQFsHnq9_B6AwgcoE4',
+    appId: '1:1091140346363:ios:77761673864e6d07a46b5e',
+    messagingSenderId: '1091140346363',
+    projectId: 'birthday-app-7f434',
+    storageBucket: 'birthday-app-7f434.appspot.com',
+    iosClientId: '1091140346363-71voetje42uiatjlfucpv52ij2da7c90.apps.googleusercontent.com',
+    iosBundleId: 'com.example.birthdayApp.RunnerTests',
   );
 }

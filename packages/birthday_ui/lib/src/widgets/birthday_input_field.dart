@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 
 class BirthdayInputField extends StatelessWidget {
   BirthdayInputField({
-    required this.controller,
+    required TextEditingController controller,
     super.key,
     this.placeholder = '',
     this.leading,
     this.trailing,
     this.trailingTapped,
-    this.password = false,
-  });
+    this.validator,
+  }) : _controller = controller;
 
-  final TextEditingController controller;
+  final TextEditingController _controller;
   final String placeholder;
   final Widget? leading;
   final Widget? trailing;
-  final bool password;
   final void Function()? trailingTapped;
+  final String? Function(String?)? validator;
 
   final circularBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(8),
@@ -25,10 +25,10 @@ class BirthdayInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
+    return TextFormField(
+      controller: _controller,
+      validator: validator,
       style: const TextStyle(height: 1),
-      obscureText: password,
       decoration: InputDecoration(
         hintText: placeholder,
         contentPadding: const EdgeInsets.symmetric(

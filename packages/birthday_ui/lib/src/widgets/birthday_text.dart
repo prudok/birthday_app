@@ -7,13 +7,13 @@ class BirthdayText extends StatelessWidget {
 
   BirthdayText.headingTwo(this.text, {super.key}) : style = heading2Style;
 
-  const BirthdayText.custom(this.text, this.style, {super.key});
-
   BirthdayText.body(
     this.text, {
     super.key,
     Color color = kMediumGreyColor,
-  }) : style = bodyStyle.copyWith(color: color);
+  }) : style = body1Style.copyWith(color: color);
+
+  const BirthdayText.custom(this.text, this.style, {super.key});
 
   final String text;
   final TextStyle style;

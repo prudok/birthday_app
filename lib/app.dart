@@ -1,6 +1,5 @@
-import 'package:birthday_app/config/injection.dart';
-import 'package:birthday_app/config/router.dart';
-import 'package:birthday_app/core/themes.dart';
+import 'package:birthday_app/config/config.dart';
+import 'package:birthday_app/core/core.dart';
 import 'package:birthday_app/features/guests/presentation/bloc/guest_bloc.dart';
 import 'package:birthday_app/generated/l10n.dart';
 import 'package:flutter/material.dart';

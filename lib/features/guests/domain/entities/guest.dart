@@ -7,13 +7,11 @@ part 'guest.g.dart';
 @freezed
 class Guest with _$Guest {
   const factory Guest({
-    required int id,
     required String name,
     required String surname,
     required String birthday,
     required String phoneNumber,
     required String profession,
-    required int age,
   }) = _Guest;
 
   const Guest._();

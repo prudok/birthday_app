@@ -29,6 +29,13 @@
             {
               "client_id": "1091140346363-6jgs34eaf916c6eg56qkkp2gfjso554a.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1091140346363-2dnr5r2j4i98ht9r6ejv25n86isnq2v3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.birthdayApp"
+              }
             }
           ]
         }

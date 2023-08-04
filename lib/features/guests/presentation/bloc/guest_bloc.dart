@@ -19,18 +19,18 @@ class GuestBloc extends Bloc<GuestEvent, GuestState> {
         await guestRepositoryImpl.getAll().then(
               (guests) => emit(GuestState.successfull(guestList: guests)),
             );
-      } on Exception catch (error) {
+      } on Object catch (error) {
         emit(GuestState.error(error: error));
       }
     });
     on<RemoveGuestEvent>((event, emit) async {
       emit(const GuestState.processing());
       try {
-        await guestRepositoryImpl.remove(event.id);
+        await guestRepositoryImpl.remove(event.phoneNumber);
         await guestRepositoryImpl.getAll().then(
               (guests) => emit(GuestState.successfull(guestList: guests)),
             );
-      } on Exception catch (error) {
+      } on Object catch (error) {
         emit(GuestState.error(error: error));
       }
     });
@@ -40,7 +40,7 @@ class GuestBloc extends Bloc<GuestEvent, GuestState> {
         await guestRepositoryImpl.getAll().then(
               (guests) => emit(GuestState.successfull(guestList: guests)),
             );
-      } on Exception catch (error) {
+      } on Object catch (error) {
         emit(GuestState.error(error: error));
       }
     });

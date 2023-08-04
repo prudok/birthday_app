@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "boardGames": MessageLookupByLibrary.simpleMessage("Настольные игры"),
         "bread": MessageLookupByLibrary.simpleMessage("Хлеб"),
         "collapse": MessageLookupByLibrary.simpleMessage("Свернуть ▲"),
+        "enroll": MessageLookupByLibrary.simpleMessage("Записаться"),
         "entertainment": MessageLookupByLibrary.simpleMessage("Развлечения"),
         "expand": MessageLookupByLibrary.simpleMessage("Развернуть ▼"),
         "gameCategories": MessageLookupByLibrary.simpleMessage(

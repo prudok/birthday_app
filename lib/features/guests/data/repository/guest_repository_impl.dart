@@ -16,13 +16,13 @@ class GuestRepositoryImpl extends GuestRepository {
   }
 
   @override
-  Future<void> remove(int id) async {
-    await guestAPIImpl.remove(id);
+  Future<void> remove(String phone) async {
+    await guestAPIImpl.remove(phone);
   }
 
   @override
-  Future<Guest> get(int id) async {
-    return guestAPIImpl.get(id);
+  Future<Guest> get(String phone) async {
+    return guestAPIImpl.get(phone);
   }
 
   @override

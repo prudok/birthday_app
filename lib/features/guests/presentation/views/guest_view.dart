@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:birthday_app/core/asset_path.dart';
+import 'package:birthday_app/core/core.dart';
 import 'package:birthday_app/features/guests/presentation/bloc/guest_bloc.dart';
+import 'package:birthday_app/features/guests/presentation/widgets/guest_form.dart';
 import 'package:birthday_app/generated/l10n.dart';
 import 'package:birthday_ui/birthday_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @RoutePage()
 class GuestView extends StatefulWidget {
@@ -16,36 +16,20 @@ class GuestView extends StatefulWidget {
 }
 
 class _GuestViewState extends State<GuestView> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _surnameController = TextEditingController();
-  final TextEditingController _birthdayController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _professionController = TextEditingController();
-
-  void _clearAll() {
-    _nameController.text = '';
-    _surnameController.text = '';
-    _birthdayController.text = '';
-    _phoneController.text = '';
-    _professionController.text = '';
-  }
+  late final GuestBloc guestBloc;
 
   @override
-  void dispose() {
-    _nameController.dispose();
-    _surnameController.dispose();
-    _birthdayController.dispose();
-    _phoneController.dispose();
-    _professionController.dispose();
-    super.dispose();
+  void initState() {
+    guestBloc = BlocProvider.of<GuestBloc>(context);
+    guestBloc.add(const GuestEvent.reload());
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    // final guestBloc = BlocProvider.of<GuestBloc>(context);
     return Scaffold(
       appBar: BirthdayAppBar(
-        title: BirthdayText.headingOne('Список гостей'),
+        title: BirthdayText.headingOne(S.of(context).guestList),
         centerTitle: true,
         leading: IconButton(
           icon: Image.asset(AssetPath.leftArrow),
@@ -56,117 +40,130 @@ class _GuestViewState extends State<GuestView> {
           },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet<void>(
-            context: context,
-            isScrollControlled: true,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(12),
-              ),
+      floatingActionButton: const _AddGuestButton(),
+      body: BlocBuilder<GuestBloc, GuestState>(
+        builder: (context, state) {
+          return state.when(
+            initial: () => SizedBox(
+              child: BirthdayText.headingOne('Add New Guest!'),
             ),
-            builder: (_) {
-              return SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: horizontalPaddingSmall,
-                  ),
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 10),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: kGreyColor,
-                        ),
-                        height: 5,
-                        width: 30,
-                      ),
-                      verticalSpaceMedium,
-                      BirthdayInputField(
-                        controller: _nameController,
-                        placeholder: S.of(context).name,
-                      ),
-                      verticalSpaceSmall,
-                      BirthdayInputField(
-                        controller: _surnameController,
-                        placeholder: S.of(context).surname,
-                      ),
-                      verticalSpaceSmall,
-                      BirthdayInputField(
-                        controller: _birthdayController,
-                        placeholder: S.of(context).birthday,
-                      ),
-                      verticalSpaceSmall,
-                      BirthdayInputField(
-                        controller: _phoneController,
-                        placeholder: S.of(context).phone,
-                      ),
-                      verticalSpaceSmall,
-                      BirthdayInputField(
-                        controller: _professionController,
-                        placeholder: S.of(context).profession,
-                      ),
-                      verticalSpaceMedium,
-                      SizedBox(
-                        height: 50.h,
-                        width: 156.w,
-                        child: BirthdayButton(
-                          title: 'Записаться',
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                      ),
-                      verticalSpaceHigh,
-                    ],
-                  ),
-                ),
-              );
-            },
-          );
-        },
-        child: const Icon(Icons.add, color: kBlackColor),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: horizontalPaddingSmall),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            processing: () => const Center(
+              child: CircularProgressIndicator(),
+            ),
+            successfull: (guestList) => SingleChildScrollView(
+              child: Column(
                 children: [
-                  BirthdayText.body('2 гостя'),
-                  BirthdayText.custom(
-                    'По имени ▼',
-                    bodyStyle.copyWith(decoration: TextDecoration.underline),
+                  verticalSpaceSmall,
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: horizontalPaddingSmall,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        BirthdayText.body('${guestList.guests.length} гостя'),
+                        BirthdayText.custom(
+                          'По имени ▼',
+                          body1Style.copyWith(
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.8,
+                    child: ListView.builder(
+                      itemCount: guestList.guests.length,
+                      itemBuilder: (_, ind) {
+                        return _GuestTile(
+                          name: guestList.guests[ind].name,
+                          age: guestList.guests[ind].birthday,
+                          profession: guestList.guests[ind].profession,
+                          onTrailingTap: () => guestBloc.add(
+                            GuestEvent.remove(
+                              phoneNumber: guestList.guests[ind].phoneNumber,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
             ),
-            BlocBuilder<GuestBloc, GuestState>(
-              builder: (context, state) {
-                return state.when(
-                  initial: () => SizedBox(
-                    child: BirthdayText.headingOne('Initial'),
-                  ),
-                  processing: () => const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                  successfull: (guestList) => ListView.builder(
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        title: BirthdayText.body(guestList.guests[index].name),
-                      );
-                    },
-                  ),
-                  error: (Exception error) => Center(
-                    child: BirthdayText.headingTwo('Something went wrong.'),
-                  ),
-                );
-              },
-            )
-          ],
-        ),
+            error: (Object error) => Center(
+              child: BirthdayText.headingTwo('Something went wrong.'),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _AddGuestButton extends StatelessWidget {
+  const _AddGuestButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {
+        showModalBottomSheet<void>(
+          context: context,
+          isScrollControlled: true,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(12),
+            ),
+          ),
+          builder: (_) {
+            return const GuestForm();
+          },
+        );
+      },
+      child: Image.asset(AssetPath.addButton),
+    );
+  }
+}
+
+class _GuestTile extends StatelessWidget {
+  const _GuestTile({
+    required this.name,
+    required this.age,
+    required this.profession,
+    this.onTrailingTap,
+  });
+
+  final String name;
+  final String age;
+  final String profession;
+  final void Function()? onTrailingTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Image.asset(AssetPath.userPlaceholder),
+      trailing: IconButton(
+        icon: const Icon(Icons.delete),
+        onPressed: onTrailingTap,
+      ),
+      isThreeLine: true,
+      title: BirthdayText.custom(
+        name,
+        body1Style.copyWith(fontWeight: FontWeight.bold),
+      ),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          BirthdayText.custom(
+            age,
+            body2Style,
+          ),
+          BirthdayText.body(
+            profession,
+          ),
+        ],
       ),
     );
   }

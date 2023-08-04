@@ -249,6 +249,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Записаться`
+  String get enroll {
+    return Intl.message(
+      'Записаться',
+      name: 'enroll',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

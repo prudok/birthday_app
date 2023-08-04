@@ -17,4 +17,7 @@ abstract class AssetPath {
   static const leftArrow = 'assets/images/arrow_left.png';
   static const placemark = 'assets/images/placemark.png';
   static const detailIcon = 'assets/images/detail_icon.png';
+  static const addButton = 'assets/images/add_button.png';
+  static const userPlaceholder = 'assets/images/user_placeholder.png';
+  static const date = 'assets/images/date.png';
 }

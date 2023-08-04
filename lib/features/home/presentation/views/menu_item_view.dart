@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:birthday_app/core/asset_path.dart';
+import 'package:birthday_app/core/core.dart';
 import 'package:birthday_app/generated/l10n.dart';
 import 'package:birthday_ui/birthday_ui.dart';
 import 'package:flutter/material.dart';

@@ -6,6 +6,8 @@ analyzer:
     - "**.freezed.dart"
     - "**.generated.dart"
     - "**.config.dart"
+    - "lib/firebase_options.dart"
+    - "lib/generated/**"
     - "pubspec.yaml"
 
 linter:

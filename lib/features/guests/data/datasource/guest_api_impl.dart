@@ -8,14 +8,13 @@ import 'package:injectable/injectable.dart';
 
 @Singleton()
 class GuestAPIImpl extends GuestAPI {
-
   final FirebaseFirestore db = FirebaseFirestore.instance;
 
   @override
-  Future<Guest> get(int id) async {
+  Future<Guest> get(String phone) async {
     try {
       final store =
-          await db.collection('guests').where('id', isEqualTo: id).get();
+          await db.collection('guests').where('phone', isEqualTo: phone).get();
       final guest = store.docs.map((doc) => Guest.fromJson(doc.data())).single;
       return guest;
     } on Object catch (error, stackTrace) {
@@ -45,11 +44,13 @@ class GuestAPIImpl extends GuestAPI {
   }
 
   @override
-  Future<void> remove(int id) async {
+  Future<void> remove(String phone) async {
     try {
-      final doc =
-          await db.collection('guests').where('id', isEqualTo: id).get();
-      db.collection('guests').doc(doc.docs.first.id);
+      final doc = await db
+          .collection('guests')
+          .where('phoneNumber', isEqualTo: phone)
+          .get();
+      await db.collection('guests').doc(doc.docs.first.id).delete();
     } on Object catch (error, stackTrace) {
       Error.throwWithStackTrace(error, stackTrace);
     }

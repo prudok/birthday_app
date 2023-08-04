@@ -66,7 +66,7 @@ class _MenuGridState extends State<MenuGrid> with TickerProviderStateMixin {
           },
           child: BirthdayText.custom(
             _isExpanded ? S.of(context).collapse : S.of(context).expand,
-            bodyStyle.copyWith(decoration: TextDecoration.underline),
+            body1Style.copyWith(decoration: TextDecoration.underline),
           ),
         ),
       ],

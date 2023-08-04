@@ -20,7 +20,7 @@ class UrlText extends StatelessWidget {
       },
       child: BirthdayText.custom(
         S.of(context).visitSite,
-        bodyStyle.copyWith(decoration: TextDecoration.underline),
+        body1Style.copyWith(decoration: TextDecoration.underline),
       ),
     );
   }

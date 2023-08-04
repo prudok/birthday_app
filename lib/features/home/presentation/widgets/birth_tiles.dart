@@ -77,7 +77,7 @@ class _BirthTilesState extends State<BirthTiles> with TickerProviderStateMixin {
           },
           child: BirthdayText.custom(
             _isExpanded ? S.of(context).collapse : S.of(context).expand,
-            bodyStyle.copyWith(decoration: TextDecoration.underline),
+            body1Style.copyWith(decoration: TextDecoration.underline),
           ),
         )
       ],
@@ -104,7 +104,7 @@ class _BirthdayListTile extends StatelessWidget {
       leading: Image.asset(imagePath, fit: BoxFit.cover),
       title: BirthdayText.custom(
         title,
-        bodyStyle.copyWith(fontWeight: FontWeight.bold),
+        body1Style.copyWith(fontWeight: FontWeight.bold),
       ),
       subtitle: BirthdayText.body(subTitle),
       trailing: IconButton(

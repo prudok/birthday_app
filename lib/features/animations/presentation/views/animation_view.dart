@@ -1,10 +1,5 @@
-import 'package:auto_route/annotations.dart';
-import 'package:birthday_app/features/animations/presentation/widgets/animated_positioned_square.dart';
-import 'package:birthday_app/features/animations/presentation/widgets/hero_square.dart';
-import 'package:birthday_app/features/animations/presentation/widgets/rotating_square.dart';
-import 'package:birthday_app/features/animations/presentation/widgets/scalable_square.dart';
-import 'package:birthday_app/features/animations/presentation/widgets/snake_square.dart';
-import 'package:birthday_app/features/animations/presentation/widgets/switching_square.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:birthday_app/features/animations/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()

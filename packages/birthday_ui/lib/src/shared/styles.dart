@@ -13,8 +13,14 @@ final TextStyle heading2Style = TextStyle(
   fontFamily: 'Jost',
 );
 
-final TextStyle bodyStyle = TextStyle(
+final TextStyle body1Style = TextStyle(
   fontSize: 14.sp,
+  fontWeight: FontWeight.w400,
+  fontFamily: 'Jost',
+);
+
+final TextStyle body2Style = TextStyle(
+  fontSize: 12.sp,
   fontWeight: FontWeight.w400,
   fontFamily: 'Jost',
 );
