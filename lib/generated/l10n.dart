@@ -259,6 +259,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Add New Guest!`
+  String get addNewGuest {
+    return Intl.message(
+      'Add New Guest!',
+      name: 'addNewGuest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong.`
+  String get somethingWentWrong {
+    return Intl.message(
+      'Something went wrong.',
+      name: 'somethingWentWrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ссылка`
+  String get link {
+    return Intl.message(
+      'Ссылка',
+      name: 'link',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add new wish!`
+  String get addNewWish {
+    return Intl.message(
+      'Add new wish!',
+      name: 'addNewWish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `По имени`
+  String get byName {
+    return Intl.message(
+      'По имени',
+      name: 'byName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `По возрасту`
+  String get byAge {
+    return Intl.message(
+      'По возрасту',
+      name: 'byAge',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ссылка на аватарку(необязательно)`
+  String get avatarLink {
+    return Intl.message(
+      'Ссылка на аватарку(необязательно)',
+      name: 'avatarLink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Добавить подарок`
+  String get addGift {
+    return Intl.message(
+      'Добавить подарок',
+      name: 'addGift',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Название`
+  String get naming {
+    return Intl.message(
+      'Название',
+      name: 'naming',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

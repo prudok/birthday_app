@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'guest_list.freezed.dart';
 part 'guest_list.g.dart';
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class GuestList with _$GuestList {
   const factory GuestList({
     required List<Guest> guests,

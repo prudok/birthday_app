@@ -22,9 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addGift": MessageLookupByLibrary.simpleMessage("Добавить подарок"),
+        "addNewGuest": MessageLookupByLibrary.simpleMessage("Add New Guest!"),
+        "addNewWish": MessageLookupByLibrary.simpleMessage("Add new wish!"),
+        "avatarLink": MessageLookupByLibrary.simpleMessage(
+            "Ссылка на аватарку(необязательно)"),
         "birthday": MessageLookupByLibrary.simpleMessage("День рождения"),
         "boardGames": MessageLookupByLibrary.simpleMessage("Настольные игры"),
         "bread": MessageLookupByLibrary.simpleMessage("Хлеб"),
+        "byAge": MessageLookupByLibrary.simpleMessage("По возрасту"),
+        "byName": MessageLookupByLibrary.simpleMessage("По имени"),
         "collapse": MessageLookupByLibrary.simpleMessage("Свернуть ▲"),
         "enroll": MessageLookupByLibrary.simpleMessage("Записаться"),
         "entertainment": MessageLookupByLibrary.simpleMessage("Развлечения"),
@@ -32,14 +39,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "gameCategories": MessageLookupByLibrary.simpleMessage(
             "Мафия, уно, домино, экивоки и другие"),
         "guestList": MessageLookupByLibrary.simpleMessage("Список Гостей"),
+        "link": MessageLookupByLibrary.simpleMessage("Ссылка"),
         "localAdress": MessageLookupByLibrary.simpleMessage(
             "Центральная ул., 84, хутор Седых"),
         "menu": MessageLookupByLibrary.simpleMessage("Меню"),
         "name": MessageLookupByLibrary.simpleMessage("Имя"),
+        "naming": MessageLookupByLibrary.simpleMessage("Название"),
         "phone": MessageLookupByLibrary.simpleMessage("Телефон"),
         "place": MessageLookupByLibrary.simpleMessage("Место"),
         "pool": MessageLookupByLibrary.simpleMessage("Бассейн"),
         "profession": MessageLookupByLibrary.simpleMessage("Профессия"),
+        "somethingWentWrong":
+            MessageLookupByLibrary.simpleMessage("Something went wrong."),
         "surname": MessageLookupByLibrary.simpleMessage("Фамилия"),
         "twoHeatedPools":
             MessageLookupByLibrary.simpleMessage("Два Бассейна с подгоревом"),

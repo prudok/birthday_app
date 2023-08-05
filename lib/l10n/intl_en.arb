@@ -19,5 +19,14 @@
   "surname": "Фамилия",
   "phone": "Телефон",
   "profession": "Профессия",
-  "enroll": "Записаться"
+  "enroll": "Записаться",
+  "addNewGuest": "Add New Guest!",
+  "somethingWentWrong": "Something went wrong.",
+  "link": "Ссылка",
+  "addNewWish": "Add new wish!",
+  "byName": "По имени",
+  "byAge": "По возрасту",
+  "avatarLink": "Ссылка на аватарку(необязательно)",
+  "addGift": "Добавить подарок",
+  "naming": "Название"
 }

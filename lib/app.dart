@@ -1,6 +1,8 @@
 import 'package:birthday_app/config/config.dart';
 import 'package:birthday_app/core/core.dart';
 import 'package:birthday_app/features/guests/presentation/bloc/guest_bloc.dart';
+import 'package:birthday_app/features/guests/presentation/bloc/sorting_bloc.dart';
+import 'package:birthday_app/features/wishlist/presentation/bloc/wish_bloc.dart';
 import 'package:birthday_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +22,12 @@ class App extends StatelessWidget {
           providers: [
             BlocProvider(
               create: (context) => getIt.get<GuestBloc>(),
+            ),
+            BlocProvider(
+              create: (context) => getIt.get<WishBloc>(),
+            ),
+            BlocProvider(
+              create: (context) => getIt.get<SortingBloc>(),
             ),
           ],
           child: MaterialApp.router(

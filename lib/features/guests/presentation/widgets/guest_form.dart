@@ -7,7 +7,6 @@ import 'package:birthday_ui/birthday_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 
 class GuestForm extends StatefulWidget {
   const GuestForm({super.key});
@@ -19,39 +18,32 @@ class GuestForm extends StatefulWidget {
 class _GuestFormState extends State<GuestForm> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _surnameController = TextEditingController();
-  final TextEditingController _birthdayController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _professionController = TextEditingController();
-
-  late final GlobalKey<FormState> _globalKey;
-
-  @override
-  void initState() {
-    _globalKey = GlobalKey<FormState>();
-    super.initState();
-  }
+  final TextEditingController _avatarLinkController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
     _nameController.dispose();
     _surnameController.dispose();
-    _birthdayController.dispose();
+    _ageController.dispose();
     _phoneController.dispose();
     _professionController.dispose();
+    _avatarLinkController.dispose();
     super.dispose();
   }
 
-  void _showDatePicker() async {
+  Future<void> _showDatePicker() async {
     final date = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2023),
+      firstDate: DateTime(1950),
       lastDate: DateTime(2024),
     );
     if (date != null) {
-      _birthdayController.text = DateFormat('dd-MM-yyyy').format(
-        date,
-      );
+      _ageController.text = (DateTime.now().year - date.year).toString();
     }
   }
 
@@ -65,7 +57,7 @@ class _GuestFormState extends State<GuestForm> {
           horizontal: horizontalPaddingSmall,
         ),
         child: Form(
-          key: _globalKey,
+          key: _formKey,
           child: Column(
             children: [
               const SizedBox(height: 10),
@@ -91,9 +83,8 @@ class _GuestFormState extends State<GuestForm> {
               ),
               verticalSpaceSmall,
               BirthdayInputField(
-                controller: _birthdayController,
+                controller: _ageController,
                 placeholder: S.of(context).birthday,
-                validator: Validator.birthday,
                 trailing: IconButton(
                   icon: Image.asset(AssetPath.date),
                   onPressed: _showDatePicker,
@@ -111,6 +102,11 @@ class _GuestFormState extends State<GuestForm> {
                 placeholder: S.of(context).profession,
                 validator: Validator.profession,
               ),
+              verticalSpaceSmall,
+              BirthdayInputField(
+                controller: _avatarLinkController,
+                placeholder: S.of(context).avatarLink,
+              ),
               verticalSpaceMedium,
               SizedBox(
                 height: 50.h,
@@ -119,15 +115,18 @@ class _GuestFormState extends State<GuestForm> {
                   title: S.of(context).enroll,
                   color: Theme.of(context).colorScheme.primary,
                   onTap: () {
-                    if (_globalKey.currentState!.validate()) {
+                    if (_formKey.currentState!.validate()) {
                       guestBloc.add(
                         AddGuestEvent(
                           guest: Guest(
-                            birthday: _birthdayController.text,
+                            age: _ageController.text,
                             name: _nameController.text,
                             phoneNumber: _phoneController.text,
                             profession: _professionController.text,
                             surname: _surnameController.text,
+                            avatarLink: _avatarLinkController.text.isEmpty
+                                ? null
+                                : _avatarLinkController.text,
                           ),
                         ),
                       );
