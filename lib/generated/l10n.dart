@@ -259,6 +259,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Add New Guest!`
+  String get addNewGuest {
+    return Intl.message(
+      'Add New Guest!',
+      name: 'addNewGuest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong.`
+  String get somethingWentWrong {
+    return Intl.message(
+      'Something went wrong.',
+      name: 'somethingWentWrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ссылка`
+  String get link {
+    return Intl.message(
+      'Ссылка',
+      name: 'link',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add new wish!`
+  String get addNewWish {
+    return Intl.message(
+      'Add new wish!',
+      name: 'addNewWish',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

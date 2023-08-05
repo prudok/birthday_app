@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:birthday_app/core/core.dart';
 import 'package:birthday_app/features/guests/presentation/bloc/guest_bloc.dart';
-import 'package:birthday_app/features/guests/presentation/widgets/guest_form.dart';
+import 'package:birthday_app/features/guests/presentation/widgets/widgets.dart';
 import 'package:birthday_app/generated/l10n.dart';
 import 'package:birthday_ui/birthday_ui.dart';
 import 'package:flutter/material.dart';
@@ -40,17 +40,17 @@ class _GuestViewState extends State<GuestView> {
           },
         ),
       ),
-      floatingActionButton: const _AddGuestButton(),
+      floatingActionButton: const AddGuestButton(),
       body: BlocBuilder<GuestBloc, GuestState>(
         builder: (context, state) {
           return state.when(
             initial: () => SizedBox(
-              child: BirthdayText.headingOne('Add New Guest!'),
+              child: BirthdayText.headingOne(S.of(context).addNewGuest),
             ),
             processing: () => const Center(
               child: CircularProgressIndicator(),
             ),
-            successfull: (guestList) => SingleChildScrollView(
+            successful: (guestList) => SingleChildScrollView(
               child: Column(
                 children: [
                   verticalSpaceSmall,
@@ -78,7 +78,7 @@ class _GuestViewState extends State<GuestView> {
                       itemBuilder: (_, ind) {
                         return _GuestTile(
                           name: guestList.guests[ind].name,
-                          age: guestList.guests[ind].birthday,
+                          age: guestList.guests[ind].age,
                           profession: guestList.guests[ind].profession,
                           onTrailingTap: () => guestBloc.add(
                             GuestEvent.remove(
@@ -93,36 +93,11 @@ class _GuestViewState extends State<GuestView> {
               ),
             ),
             error: (Object error) => Center(
-              child: BirthdayText.headingTwo('Something went wrong.'),
+              child: BirthdayText.headingTwo(S.of(context).somethingWentWrong),
             ),
           );
         },
       ),
-    );
-  }
-}
-
-class _AddGuestButton extends StatelessWidget {
-  const _AddGuestButton();
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        showModalBottomSheet<void>(
-          context: context,
-          isScrollControlled: true,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(12),
-            ),
-          ),
-          builder: (_) {
-            return const GuestForm();
-          },
-        );
-      },
-      child: Image.asset(AssetPath.addButton),
     );
   }
 }

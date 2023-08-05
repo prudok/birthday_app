@@ -9,7 +9,7 @@ class Guest with _$Guest {
   const factory Guest({
     required String name,
     required String surname,
-    required String birthday,
+    required String age,
     required String phoneNumber,
     required String profession,
   }) = _Guest;

@@ -11,13 +11,13 @@ part 'guest_state.dart';
 
 @Injectable()
 class GuestBloc extends Bloc<GuestEvent, GuestState> {
-  GuestBloc(this.guestRepositoryImpl) : super(const _Initial()) {
+  GuestBloc(this._guestRepositoryImpl) : super(const _Initial()) {
     on<AddGuestEvent>((event, emit) async {
       emit(const GuestState.processing());
       try {
-        await guestRepositoryImpl.add(event.guest);
-        await guestRepositoryImpl.getAll().then(
-              (guests) => emit(GuestState.successfull(guestList: guests)),
+        await _guestRepositoryImpl.add(event.guest);
+        await _guestRepositoryImpl.getAll().then(
+              (guests) => emit(GuestState.successful(guestList: guests)),
             );
       } on Object catch (error) {
         emit(GuestState.error(error: error));
@@ -26,9 +26,9 @@ class GuestBloc extends Bloc<GuestEvent, GuestState> {
     on<RemoveGuestEvent>((event, emit) async {
       emit(const GuestState.processing());
       try {
-        await guestRepositoryImpl.remove(event.phoneNumber);
-        await guestRepositoryImpl.getAll().then(
-              (guests) => emit(GuestState.successfull(guestList: guests)),
+        await _guestRepositoryImpl.remove(event.phoneNumber);
+        await _guestRepositoryImpl.getAll().then(
+              (guests) => emit(GuestState.successful(guestList: guests)),
             );
       } on Object catch (error) {
         emit(GuestState.error(error: error));
@@ -37,13 +37,13 @@ class GuestBloc extends Bloc<GuestEvent, GuestState> {
     on<ReloadGuestEvent>((event, emit) async {
       emit(const GuestState.processing());
       try {
-        await guestRepositoryImpl.getAll().then(
-              (guests) => emit(GuestState.successfull(guestList: guests)),
+        await _guestRepositoryImpl.getAll().then(
+              (guests) => emit(GuestState.successful(guestList: guests)),
             );
       } on Object catch (error) {
         emit(GuestState.error(error: error));
       }
     });
   }
-  final GuestRepositoryImpl guestRepositoryImpl;
+  final GuestRepositoryImpl _guestRepositoryImpl;
 }

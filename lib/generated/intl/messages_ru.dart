@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addNewGuest": MessageLookupByLibrary.simpleMessage("Add New Guest!"),
+        "addNewWish": MessageLookupByLibrary.simpleMessage("Add new wish!"),
         "birthday": MessageLookupByLibrary.simpleMessage("День рождения"),
         "boardGames": MessageLookupByLibrary.simpleMessage("Настольные игры"),
         "bread": MessageLookupByLibrary.simpleMessage("Хлеб"),
@@ -32,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gameCategories": MessageLookupByLibrary.simpleMessage(
             "Мафия, уно, домино, экивоки и другие"),
         "guestList": MessageLookupByLibrary.simpleMessage("Список Гостей"),
+        "link": MessageLookupByLibrary.simpleMessage("Ссылка"),
         "localAdress": MessageLookupByLibrary.simpleMessage(
             "Центральная ул., 84, хутор Седых"),
         "menu": MessageLookupByLibrary.simpleMessage("Меню"),
@@ -40,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "place": MessageLookupByLibrary.simpleMessage("Место"),
         "pool": MessageLookupByLibrary.simpleMessage("Бассейн"),
         "profession": MessageLookupByLibrary.simpleMessage("Профессия"),
+        "somethingWentWrong":
+            MessageLookupByLibrary.simpleMessage("Something went wrong."),
         "surname": MessageLookupByLibrary.simpleMessage("Фамилия"),
         "twoHeatedPools":
             MessageLookupByLibrary.simpleMessage("Два Бассейна с подгоревом"),
