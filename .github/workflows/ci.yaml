@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      [ main ]
+  push:
+    branches:
+      [ release ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.10.5' 
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Analyze code
+        run: flutter analyze
+
+      - name: Test code
+        run: flutter test
+
+      - name: Build APK
+        if: github.ref == 'refs/heads/release'
+        run: flutter build apk --release
+
+      - name: Upload APK
+        if: github.ref == 'refs/heads/release'
+        uses: actions/upload-artifact@v2
+        with:
+          name: App Release
+          path: build/app/outputs/flutter-apk/app-release.apk

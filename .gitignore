@@ -7,3 +7,4 @@
 *.generated.dart
 *.freezed.dart
 *.config.dart
+*.DS_STORE
